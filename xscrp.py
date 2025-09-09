@@ -57,10 +57,7 @@ class xscrp:
                 print(f"     -- {day}/{total_days}: {current} ", end="", flush=True)
                 
                 try:
-                    tweets = await asyncio.wait_for(
-                        gather(self.api.search(daily_query, limit=daily_limit)), 
-                        timeout=30
-                    )
+                    tweets = await gather(self.api.search(daily_query, limit=daily_limit))
                     
                     if tweets:
                         valid_tweets = [t for t in tweets if t.date and t.date.date() == current]
@@ -92,11 +89,6 @@ class xscrp:
                     
                     await asyncio.sleep(1.5)  # Rate limit delay
                     
-                except asyncio.TimeoutError:
-                    # When timeout occurs due to rate limiting, wait 10 minutes (typical rate limit duration)
-                    print("  ☠ timeout - likely rate limited, waiting 10 minutes...")
-                    await asyncio.sleep(600)  # Wait 10 minutes on timeout
-                    continue  # Retry the same day
                 except Exception as e:
                     error_str = str(e)
                     if "rate limit" in error_str.lower() or "No account available" in error_str:

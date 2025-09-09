@@ -6,16 +6,16 @@ import getpass
 from twscrape import API
 
 async def setup():
-    print("🔐 Add Twitter Account")
+    print("add x account")
     print("=" * 30)
     
-    username = input("Twitter username: ").strip()
-    password = getpass.getpass("Twitter password: ").strip()
-    email = input("Email: ").strip()
-    
-    print("\nCookies (from browser - recommended):")
+    username = input("x username: ").strip()
+    password = getpass.getpass("x password: ").strip()
+    email = input("email: ").strip()
+
+    print("\ncookies (from browser - recommended):")
     print("Example: auth_token=abc123; ct0=def456")
-    cookies = input("Cookies (or press Enter to skip): ").strip()
+    cookies = input("cookies (or press Enter to skip): ").strip()
     
     api = API()
     
