@@ -1,0 +1,21 @@
+🐦 Quick Start Example:
+
+1. Setup account (one time):
+   python setup_account.py
+
+2. Run search:
+   python search.py
+
+   Example interaction:
+   Search query: Python OR "machine learning"
+   Start date (YYYY-MM-DD): 2024-01-01  
+   End date (YYYY-MM-DD): 2024-01-03
+   Tweets per day (default 50): 100
+
+3. Results saved as CSV:
+   search_Python_OR_machine_learning_20240909_114523.csv
+
+⚠️ Rate Limits:
+- Stay under 500 tweets/day to avoid blocks
+- Script includes timeouts and delays
+- Use Ctrl+C to stop if needed
